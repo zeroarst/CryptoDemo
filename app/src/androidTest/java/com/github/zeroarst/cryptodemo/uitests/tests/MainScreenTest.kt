@@ -3,6 +3,7 @@ package com.github.zeroarst.cryptodemo.uitests.tests
 import androidx.compose.ui.test.hasClickAction
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.github.zeroarst.cryptodemo.uitests.screens.MainScreen
+import com.github.zeroarst.cryptodemo.uitests.utils.waitUntilNotDisplay
 import io.github.kakaocup.compose.node.element.ComposeScreen.Companion.onComposeScreen
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,8 +21,8 @@ class MainScreenTest : BaseTest() {
             }
             loadingProgressBar {
                 assertIsDisplayed()
+                waitUntilNotDisplay(composeTestRule)
             }
-            Thread.sleep(2000)
             currencyList {
                 assertIsDisplayed()
                 currencyListItem {
